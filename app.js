@@ -1,5 +1,5 @@
 window.onload = function () {
-  let hangman_words = [
+  let hangmanWords = [
     'able',
     'about',
     'account',
@@ -24,19 +24,19 @@ window.onload = function () {
   ]
 
   let letters = document.querySelector('#letters')
-  // let hiddenWord = []
-  // let answerString = 'Test'
-  let words = hangman_words[Math.floor(Math.random() * hangman_words.length)]
+  let hiddenWord = []
+  let answerString
+  let words = hangmanWords[Math.floor(Math.random() * hangmanWords.length)]
   console.log(words)
 
   //Logic to make the word appear with underscores
 
-  // for (var i = 0; i < words; i++) {
-  //   hiddenWord[i] = '_'
-  // }
+  for (var i = 0; i < words.length; i++) {
+    hiddenWord[i] = '_'
+  }
 
-  // answerString = hiddenWord.join(' ')
-  // document.getElementById('answers').innerText = answerString
+  answerString = hiddenWord.join(' ')
+  document.querySelector('#hiddenWord').innerText = answerString
 
   //Got sidetracked trying to figure out how to make an array list the buttons instead of raw HTML code
 
@@ -64,7 +64,7 @@ window.onload = function () {
       document.querySelector('#lives').innerText = 'Amount of lives left: ' + userLife
 
       if (words.includes('a')) {
-        letters.innerText = 'a'
+        document.querySelector('#hiddenWord').innerText = 'a'
       } else {
         userLife--
       }
@@ -79,6 +79,7 @@ window.onload = function () {
 
       if (words.includes('b')) {
         letters.innerText = 'b'
+        // document.querySelector('#hiddenWord').innerText = 'b'
       } else {
         userLife--
       }
@@ -93,6 +94,7 @@ window.onload = function () {
 
       if (words.includes('c')) {
         letters.innerText = 'c'
+        // document.querySelector('#hiddenWord').innerText = 'c'
       } else {
         userLife--
       }
