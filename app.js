@@ -1,5 +1,27 @@
 window.onload = function () {
-  let hangmanWords = ['ABLE', 'ABOUT', 'ACCOUNT', 'ADI']
+  let hangmanWords = [
+    'able',
+    'about',
+    'account',
+    'acid',
+    'across',
+    'act',
+    'addition',
+    'adjustment',
+    'advertisement',
+    'after',
+    'again',
+    'against',
+    'agreement',
+    'air',
+    'all',
+    'almost',
+    'among',
+    'amount',
+    'amusement',
+    'and',
+    'Adi',
+  ]
 
   let letters = document.querySelector('#letters')
   let hiddenWord = []
@@ -33,80 +55,51 @@ window.onload = function () {
 
   //Change the userLife to correspond with the amount of life a hangman needs
   let userLife = 10
+
   document.querySelector('#lives').innerText = 'Amount of lives left: ' + userLife
 
   // if the letter exists in the word, it should appear on the user's screen, depending on the position and number of the letter.
+  document.querySelector('#a').onclick = function () {
+    if (userLife >= 0) {
+      document.querySelector('#lives').innerText = 'Amount of lives left: ' + userLife
 
-  let clickButton = document.querySelector('#guess')
-  let textValue = document.querySelector('#guessedLetter')
-  let guess = textValue.value
-  let upperCase = guess.toUpperCase() //Doesnt seem to work
-
-  clickButton.addEventListener('click', function () {
-    alert(textValue.value)
-
-    console.log('Before if statement')
-    console.log(textValue.value)
-
-    if (upperCase.length > 0) {
-      console.log('Inside if Statement')
-      console.log(textValue.value)
-      for (var i = 0; words.length; i++) {
-        if (words[i] === upperCase) {
-          console.log('Inside second if Statement')
-          hiddenWord[i] = upperCase
-          console.log(textValue.value)
-        }
+      if (words.includes('a')) {
+        document.querySelector('#hiddenWord').innerText = 'a'
+      } else {
+        userLife--
       }
-
-      console.log('outside if statement')
-      answerString = hiddenWord.join(' ')
-
-      document.querySelector('#hiddenWord').innerText = answerString
+    } else if (userLife <= 0) {
+      document.querySelector('#lives').innerText = 'You have lost'
     }
-  })
+  }
 
-  // document.querySelector('#a').onclick = function () {
-  //   if (userLife >= 0) {
-  //     document.querySelector('#lives').innerText = 'Amount of lives left: ' + userLife
+  document.querySelector('#b').onclick = function () {
+    if (userLife >= 0) {
+      document.querySelector('#lives').innerText = 'Amount of lives left: ' + userLife
 
-  //     if (words.includes('a')) {
-  //       document.querySelector('#hiddenWord').innerText = 'a'
-  //     } else {
-  //       userLife--
-  //     }
-  //   } else if (userLife <= 0) {
-  //     document.querySelector('#lives').innerText = 'You have lost'
-  //   }
-  // }
+      if (words.includes('b')) {
+        letters.innerText = 'b'
+        // document.querySelector('#hiddenWord').innerText = 'b'
+      } else {
+        userLife--
+      }
+    } else if (userLife <= 0) {
+      document.querySelector('#lives').innerText = 'You have lost'
+    }
+  }
 
-  // document.querySelector('#b').onclick = function () {
-  //   if (userLife >= 0) {
-  //     document.querySelector('#lives').innerText = 'Amount of lives left: ' + userLife
+  document.querySelector('#c').onclick = function () {
+    if (userLife >= 0) {
+      document.querySelector('#lives').innerText = 'Amount of lives left: ' + userLife
 
-  //     if (words.includes('b')) {
-  //       letters.innerText = 'b'
-  //       // document.querySelector('#hiddenWord').innerText = 'b'
-  //     } else {
-  //       userLife--
-  //     }
-  //   } else if (userLife <= 0) {
-  //     document.querySelector('#lives').innerText = 'You have lost'
-  //   }
-  // }
-
-  // document.querySelector('#c').onclick = function () {
-  //   if (userLife >= 0) {
-  //     document.querySelector('#lives').innerText = 'Amount of lives left: ' + userLife
-
-  //     if (words.includes('c')) {
-  //       letters.innerText = 'c'
-  //       // document.querySelector('#hiddenWord').innerText = 'c'
-  //     } else {
-  //       userLife--
-  //     }
-  //   } else if (userLife <= 0) {
-  //     document.querySelector('#lives').innerText = 'You have lost'
-  //   }
-  // }
+      if (words.includes('c')) {
+        letters.innerText = 'c'
+        // document.querySelector('#hiddenWord').innerText = 'c'
+      } else {
+        userLife--
+      }
+    } else if (userLife <= 0) {
+      document.querySelector('#lives').innerText = 'You have lost'
+    }
+  }
 }
