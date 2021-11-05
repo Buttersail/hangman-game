@@ -34,7 +34,17 @@ window.onload = function () {
         if (words.includes(splitWords[i])) {
           //Have to figure out a way to make this logic works as intended.
           //Doesn't put the letter in the right spot, just fills out the word currently
-          document.querySelector('#hiddenWord').innerText = splitWords.join('')
+          // if (splitWords.includes('a')) {
+          //   console.log('tst')
+          // }
+
+          var result = words.split('').map(function (l, i) {
+            return words.slice(-i)
+          })
+
+          console.log(result)
+
+          document.querySelector('#hiddenWord').innerText = result
         } else {
           userLife--
         }
