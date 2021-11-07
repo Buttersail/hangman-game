@@ -27,7 +27,6 @@ window.onload = function () {
   let answerString
   let selectedWord = hangmanWords[Math.floor(Math.random() * hangmanWords.length)]
 
-  //Logic to make the word appear with underscores
   for (var i = 0; i < selectedWord.length; i++) {
     hiddenWord[i] = '_'
   }
@@ -35,12 +34,10 @@ window.onload = function () {
   answerString = hiddenWord.join(' ')
   document.querySelector('#hiddenWord').innerText = answerString
 
-  //Change the userLife to correspond with the amount of life a hangman needs
   let userLife = 10
 
   document.querySelector('#lives').innerText = 'Amount of lives left: ' + userLife
 
-  // if the letter exists in the word, it should appear on the user's screen, depending on the position and number of the letter.
   document.querySelector('#a').onclick = function () {
     if (userLife > 0) {
       if (selectedWord.indexOf('a') > -1) {
